@@ -1,6 +1,6 @@
-package com.example.examplemod.platform;
+package tfar.erogare.platform;
 
-import com.example.examplemod.platform.services.IPlatformHelper;
+import tfar.erogare.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class FabricPlatformHelper implements IPlatformHelper {
