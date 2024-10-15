@@ -9,6 +9,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 import org.apache.commons.lang3.tuple.Pair;
+import tfar.erogare.datagen.ModDatagen;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +25,7 @@ public class ErogareForge {
         // This method is invoked by the Forge mod loader when it is ready
         // to load your mod. You can access Forge and Common code in this
         // project.
+        bus.addListener(ModDatagen::gather);
         bus.addListener(this::registerObjs);
         bus.addListener(this::onInitialize);
         // Use Forge to bootstrap the Common mod.

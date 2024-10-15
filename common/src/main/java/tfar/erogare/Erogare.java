@@ -1,6 +1,11 @@
 package tfar.erogare;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import tfar.erogare.init.ModCreativeTabs;
+import tfar.erogare.init.ModItems;
 import tfar.erogare.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Items;
@@ -21,7 +26,8 @@ public class Erogare {
     // write the majority of your code here and load it from your loader specific projects. This example has some
     // code that gets invoked by the entry point of the loader specific projects.
     public static void init() {
-
+        Services.PLATFORM.registerAll(ModItems.class,BuiltInRegistries.ITEM, Item.class);
+        Services.PLATFORM.registerAll(ModCreativeTabs.class,BuiltInRegistries.CREATIVE_MODE_TAB, CreativeModeTab.class);
     }
 
     public static ResourceLocation id(String path){

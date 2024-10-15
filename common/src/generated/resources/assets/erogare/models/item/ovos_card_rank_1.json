@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "erogare:item/ovos_card_rank_1"
+  }
+}
