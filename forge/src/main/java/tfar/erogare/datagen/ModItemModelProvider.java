@@ -30,6 +30,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         makeOneLayerItem(ModItems.OVOS_CARD_RANK_5);
         makeOneLayerItem(ModItems.OVOS_CARD_RANK_6);
         makeOneLayerItem(ModItems.OVOS_BUSINESS_CARD);
+
+        makeOneLayerItem(ModItems.GREEN_MYSTERIOUS_SUBSTANCE);
+        makeOneLayerItem(ModItems.BROWN_MYSTERIOUS_SUBSTANCE);
     }
 
 

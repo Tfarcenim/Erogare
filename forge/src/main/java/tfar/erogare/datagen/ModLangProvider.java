@@ -37,6 +37,9 @@ public class ModLangProvider extends LanguageProvider {
         addItem(() -> ModItems.OVOS_CARD_RANK_6,"OVOS Card Rank 6");
         addItem(() -> ModItems.OVOS_BUSINESS_CARD,"OVOS Business Card");
 
+        addItem(() -> ModItems.GREEN_MYSTERIOUS_SUBSTANCE,"Mysterious Substance");
+        addItem(() -> ModItems.BROWN_MYSTERIOUS_SUBSTANCE,"Mysterious Substance");
+
         addTranslatableComponent(ModCreativeTabs.TITLE,Erogare.MOD_NAME);
     }
 
