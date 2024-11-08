@@ -2,6 +2,7 @@ package tfar.erogare.init;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 
 public class ModItems {
@@ -24,4 +25,11 @@ public class ModItems {
 
     public static final Item BROWN_MYSTERIOUS_SUBSTANCE = new Item(new Item.Properties().food(
             new FoodProperties.Builder().effect(new MobEffectInstance(ModMobEffects.WATCHED,MobEffectInstance.INFINITE_DURATION,0,false,false), 1).build()));
+
+    public static final Item CODE_SWORD = new Item(new Item.Properties());
+
+    public static final Item MYSTERIOUS_FLESH = new BlockItem(ModBlocks.MYSTERIOUS_FLESH,new Item.Properties());
+    public static final Item RAW_CODE = new BlockItem(ModBlocks.RAW_CODE,new Item.Properties());
+    public static final Item WATCHING_FLESH = new BlockItem(ModBlocks.WATCHING_FLESH,new Item.Properties());
+
 }

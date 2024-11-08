@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
 import org.codehaus.plexus.util.StringUtils;
 import tfar.erogare.Erogare;
+import tfar.erogare.init.ModBlocks;
 import tfar.erogare.init.ModCreativeTabs;
 import tfar.erogare.init.ModItems;
 
@@ -23,6 +24,7 @@ public class ModLangProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+
         addItem(() -> ModItems.MEDAL_OF_ATROX,"Medal of Atrox");
         addItem(() -> ModItems.MEDAL_OF_CONTENTIO,"Medal of Contentio");
         addItem(() -> ModItems.MEDAL_OF_OBSCURUS,"Medal of Obscurus");
@@ -39,6 +41,9 @@ public class ModLangProvider extends LanguageProvider {
 
         addItem(() -> ModItems.GREEN_MYSTERIOUS_SUBSTANCE,"Mysterious Substance");
         addItem(() -> ModItems.BROWN_MYSTERIOUS_SUBSTANCE,"Mysterious Substance");
+
+        addDefaultBlock(() -> ModBlocks.MYSTERIOUS_FLESH);
+        addDefaultBlock(() -> ModBlocks.RAW_CODE);
 
         addTranslatableComponent(ModCreativeTabs.TITLE,Erogare.MOD_NAME);
     }

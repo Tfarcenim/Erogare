@@ -3,9 +3,12 @@ package tfar.erogare.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
+import tfar.erogare.datagen.data.ModBlockTagsProvider;
+import tfar.erogare.datagen.data.ModLootTableProvider;
 import tfar.erogare.datagen.data.ModRecipeProvider;
 
 import java.util.List;
@@ -23,7 +26,9 @@ public class ModDatagen {
         dataGenerator.addProvider(client,new ModBlockstateProvider(packOutput,existingFileHelper));
         dataGenerator.addProvider(client,new ModItemModelProvider(packOutput,existingFileHelper));
         if (event.includeServer()) {
-
+            dataGenerator.addProvider(true,ModLootTableProvider.create(packOutput));
+            BlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(packOutput,lookupProvider,existingFileHelper);
+            dataGenerator.addProvider(true,blockTagsProvider);
         }
     }
 }

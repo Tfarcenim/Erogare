@@ -1,10 +1,13 @@
 package tfar.erogare;
 
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import tfar.erogare.init.ModBlocks;
 import tfar.erogare.init.ModCreativeTabs;
 import tfar.erogare.init.ModItems;
 import tfar.erogare.init.ModMobEffects;
@@ -13,6 +16,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Items;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.stream.Stream;
 
 // This class is part of the common project meaning it is shared between all supported loaders. Code written here can only
 // import and access the vanilla codebase, libraries used by vanilla, and optionally third party libraries that provide
@@ -29,11 +34,24 @@ public class Erogare {
     // code that gets invoked by the entry point of the loader specific projects.
     public static void init() {
         Services.PLATFORM.registerAll(ModMobEffects.class,BuiltInRegistries.MOB_EFFECT, MobEffect.class);
+        Services.PLATFORM.registerAll(ModBlocks.class,BuiltInRegistries.BLOCK, Block.class);
         Services.PLATFORM.registerAll(ModItems.class,BuiltInRegistries.ITEM, Item.class);
         Services.PLATFORM.registerAll(ModCreativeTabs.class,BuiltInRegistries.CREATIVE_MODE_TAB, CreativeModeTab.class);
     }
 
     public static ResourceLocation id(String path){
         return new ResourceLocation(MOD_ID,path);
+    }
+
+    public static Stream<Item> getKnownItems() {
+        return getKnown(BuiltInRegistries.ITEM);
+    }
+
+    public static Stream<Block> getKnownBlocks() {
+        return getKnown(BuiltInRegistries.BLOCK);
+    }
+
+    public static <V> Stream<V> getKnown(Registry<V> registry) {
+        return registry.stream().filter(o -> registry.getKey(o).getNamespace().equals(MOD_ID));
     }
 }
