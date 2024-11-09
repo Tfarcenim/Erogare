@@ -7,8 +7,10 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.RegisterEvent;
 import org.apache.commons.lang3.tuple.Pair;
+import tfar.erogare.client.ModClientForge;
 import tfar.erogare.datagen.ModDatagen;
 
 import java.util.HashMap;
@@ -28,6 +30,9 @@ public class ErogareForge {
         bus.addListener(ModDatagen::gather);
         bus.addListener(this::registerObjs);
         bus.addListener(this::onInitialize);
+        if (FMLEnvironment.dist.isClient()) {
+            ModClientForge.init(bus);
+        }
         // Use Forge to bootstrap the Common mod.
         Erogare.init();
         

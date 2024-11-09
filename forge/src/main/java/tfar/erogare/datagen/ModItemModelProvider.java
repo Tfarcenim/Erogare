@@ -33,6 +33,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         makeOneLayerItem(ModItems.GREEN_MYSTERIOUS_SUBSTANCE);
         makeOneLayerItem(ModItems.BROWN_MYSTERIOUS_SUBSTANCE);
+        getBuilder("code_sword_op").parent(getExistingFile(modLoc("item/code_sword")));
     }
 
 

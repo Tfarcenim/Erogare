@@ -44,6 +44,10 @@ public class ModLangProvider extends LanguageProvider {
 
         addDefaultBlock(() -> ModBlocks.MYSTERIOUS_FLESH);
         addDefaultBlock(() -> ModBlocks.RAW_CODE);
+        addItem(() -> ModItems.CODE_SWORD_OP,"CPV1");
+        addItem(() -> ModItems.CODE_SWORD,"L'Épée D’Espoire");
+        addDefaultItem(() -> ModItems.SHATTERED_BLADE);
+        addDefaultItem(() -> ModItems.SHATTERED_HILT);
 
         addTranslatableComponent(ModCreativeTabs.TITLE,Erogare.MOD_NAME);
     }

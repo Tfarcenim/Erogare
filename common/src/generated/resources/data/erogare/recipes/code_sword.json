@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "erogare:shattered_blade"
+    },
+    {
+      "item": "erogare:shattered_hilt"
+    }
+  ],
+  "result": {
+    "item": "erogare:code_sword"
+  }
+}

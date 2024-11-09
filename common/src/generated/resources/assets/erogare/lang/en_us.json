@@ -2,6 +2,8 @@
   "block.erogare.mysterious_flesh": "Mysterious Flesh",
   "block.erogare.raw_code": "Raw Code",
   "item.erogare.brown_mysterious_substance": "Mysterious Substance",
+  "item.erogare.code_sword": "L'Épée D’Espoire",
+  "item.erogare.code_sword_op": "CPV1",
   "item.erogare.green_mysterious_substance": "Mysterious Substance",
   "item.erogare.medal_of_atrox": "Medal of Atrox",
   "item.erogare.medal_of_contentio": "Medal of Contentio",
@@ -15,5 +17,7 @@
   "item.erogare.ovos_card_rank_4": "OVOS Card Rank 4",
   "item.erogare.ovos_card_rank_5": "OVOS Card Rank 5",
   "item.erogare.ovos_card_rank_6": "OVOS Card Rank 6",
+  "item.erogare.shattered_blade": "Shattered Blade",
+  "item.erogare.shattered_hilt": "Shattered Hilt",
   "itemGroup.erogare": "Erogare"
 }
