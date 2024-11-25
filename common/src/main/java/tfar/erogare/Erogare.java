@@ -11,6 +11,7 @@ import tfar.erogare.init.ModBlocks;
 import tfar.erogare.init.ModCreativeTabs;
 import tfar.erogare.init.ModItems;
 import tfar.erogare.init.ModMobEffects;
+import tfar.erogare.network.PacketHandler;
 import tfar.erogare.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Items;
@@ -37,6 +38,8 @@ public class Erogare {
         Services.PLATFORM.registerAll(ModBlocks.class,BuiltInRegistries.BLOCK, Block.class);
         Services.PLATFORM.registerAll(ModItems.class,BuiltInRegistries.ITEM, Item.class);
         Services.PLATFORM.registerAll(ModCreativeTabs.class,BuiltInRegistries.CREATIVE_MODE_TAB, CreativeModeTab.class);
+
+        PacketHandler.registerPackets();
     }
 
     public static ResourceLocation id(String path){
