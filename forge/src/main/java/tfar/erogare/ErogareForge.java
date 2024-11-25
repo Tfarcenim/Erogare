@@ -9,6 +9,11 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -28,6 +33,7 @@ import tfar.erogare.platform.Services;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.function.Supplier;
 
 @Mod(Erogare.MOD_ID)
@@ -56,18 +62,108 @@ public class ErogareForge {
     void effectAdded(MobEffectEvent.Added event) {
         MobEffectInstance effectInstance = event.getEffectInstance();
         LivingEntity entity = event.getEntity();
-
-        if (effectInstance.getEffect() == ModMobEffects.CORRUPTED) {
-            //entity.addEffect(new MobEffectInstance(MobEffects.))
-            if (entity instanceof ServerPlayer player) {
-                Services.PLATFORM.sendToClient(new S2CShaderPacket(new ResourceLocation("shaders/post/creeper.json")), player);
-            }
-        } else if (effectInstance.getEffect() == ModMobEffects.WATCHED) {
-            if (entity instanceof ServerPlayer player) {
-                Services.PLATFORM.sendToClient(new S2CShaderPacket(new ResourceLocation("shaders/post/desaturated.json")), player);
+        MobEffect effect = effectInstance.getEffect();
+        addEffectSecondaries(entity,effectInstance);
+        if (effectInstance.getAmplifier() > 2) {
+            if (effect == ModMobEffects.CORRUPTED) {
+                //entity.addEffect(new MobEffectInstance(MobEffects.))
+                if (entity instanceof ServerPlayer player) {
+                    Services.PLATFORM.sendToClient(new S2CShaderPacket(new ResourceLocation("shaders/post/creeper.json")), player);
+                }
+            } else if (effect == ModMobEffects.WATCHED) {
+                if (entity instanceof ServerPlayer player) {
+                    Services.PLATFORM.sendToClient(new S2CShaderPacket(new ResourceLocation("shaders/post/desaturated.json")), player);
+                }
             }
         }
     }
+
+    //Watched
+    // Level 1
+    //Strength 1
+    //
+    //Level 2
+    //Strength 1, Speed 1
+    //
+    //Level 3
+    //Strength 1, Speed 1, 0.03 attack speed increase
+    //
+    //Level 4
+    //Strength 2, Speed 1, 0.05 attack speed increase + grayscale filter over screen'
+
+    //Corrupted
+    //Level 1
+    //No effect
+    //
+    //Level 2
+    //Strength 1
+    //
+    //Level 3
+    //Strength 2
+    //
+    //Level 4
+    //Resistance 1, Slowness 2, Strength 2 + Creeper filter over screen
+
+    static final UUID WATCHED_BOOST = fromResourceLocation(Erogare.id("watched_boost"));
+
+    static UUID fromResourceLocation(ResourceLocation id) {
+        return new UUID(id.getNamespace().hashCode(),id.getPath().hashCode());
+    }
+
+    void addEffectSecondaries(LivingEntity entity,MobEffectInstance effectInstance) {
+        MobEffect effect = effectInstance.getEffect();
+        int amplifier = effectInstance.getAmplifier();
+        if (effect == ModMobEffects.WATCHED) {
+            MobEffectInstance strength = new MobEffectInstance(MobEffects.DAMAGE_BOOST,effectInstance.getDuration(),amplifier / 4,effectInstance.isAmbient(),effectInstance.isVisible());
+            entity.addEffect(strength);
+            if(amplifier > 0) {
+                MobEffectInstance speed = new MobEffectInstance(MobEffects.MOVEMENT_SPEED, effectInstance.getDuration(), 0, effectInstance.isAmbient(), effectInstance.isVisible());
+                entity.addEffect(speed);
+            }
+            double attackSpeedBoost = switch (amplifier) {
+                default -> 0;
+                case 2 -> .03;
+                case 3-> .05;
+            };
+            if (attackSpeedBoost > 0) {
+                AttributeModifier modifier = new AttributeModifier(WATCHED_BOOST,"Watched Boost",attackSpeedBoost, AttributeModifier.Operation.ADDITION);
+                addAttributeSafely(entity, Attributes.ATTACK_SPEED,modifier);
+            }
+        } else if (effect == ModMobEffects.CORRUPTED) {
+            switch (amplifier) {
+                default -> {}
+                case 1 -> {
+                    MobEffectInstance strength = new MobEffectInstance(MobEffects.DAMAGE_BOOST, effectInstance.getDuration(), 0, effectInstance.isAmbient(), effectInstance.isVisible());
+                    entity.addEffect(strength);
+                }
+                case 2 -> {
+                    MobEffectInstance strength = new MobEffectInstance(MobEffects.DAMAGE_BOOST, effectInstance.getDuration(), 1, effectInstance.isAmbient(), effectInstance.isVisible());
+                    entity.addEffect(strength);
+                }
+                case 3 -> {
+                    MobEffectInstance strength = new MobEffectInstance(MobEffects.DAMAGE_BOOST, effectInstance.getDuration(), 1, effectInstance.isAmbient(), effectInstance.isVisible());
+                    entity.addEffect(strength);
+
+                    MobEffectInstance resistance = new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, effectInstance.getDuration(), 0, effectInstance.isAmbient(), effectInstance.isVisible());
+                    entity.addEffect(resistance);
+
+                    MobEffectInstance slowness = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, effectInstance.getDuration(), 1, effectInstance.isAmbient(), effectInstance.isVisible());
+                    entity.addEffect(slowness);
+                }
+            }
+        }
+    }
+
+    protected static boolean addAttributeSafely(LivingEntity entity, Attribute attribute, AttributeModifier modifier) {
+        AttributeInstance attributeInstance = entity.getAttribute(attribute);
+        if (attributeInstance == null) return false;
+        if (attributeInstance.getModifier(modifier.getId()) != null) {
+            attributeInstance.removeModifier(modifier.getId());
+        }
+        attributeInstance.addPermanentModifier(modifier);
+        return true;
+    }
+
 
     void effectExpire(MobEffectEvent.Expired event) {
         LivingEntity entity = event.getEntity();
@@ -90,6 +186,7 @@ public class ErogareForge {
             MobEffect mobEffect = mobEffectInstance.getEffect();
             if (mobEffect == ModMobEffects.CORRUPTED || mobEffect == ModMobEffects.WATCHED) {
                 Services.PLATFORM.sendToClient(new S2CRemoveShaderPacket(), player);
+                player.getAttribute(Attributes.ATTACK_SPEED).removeModifier(WATCHED_BOOST);
             }
         }
     }

@@ -1,11 +1,13 @@
 package tfar.erogare;
 
 import net.minecraft.core.Registry;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import tfar.erogare.init.ModBlocks;
 import tfar.erogare.init.ModCreativeTabs;
@@ -14,10 +16,13 @@ import tfar.erogare.init.ModMobEffects;
 import tfar.erogare.network.PacketHandler;
 import tfar.erogare.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.item.Items;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Locale;
+import java.util.Map;
 import java.util.stream.Stream;
 
 // This class is part of the common project meaning it is shared between all supported loaders. Code written here can only
@@ -57,4 +62,14 @@ public class Erogare {
     public static <V> Stream<V> getKnown(Registry<V> registry) {
         return registry.stream().filter(o -> registry.getKey(o).getNamespace().equals(MOD_ID));
     }
+
+    public static void addLore(ItemStack stack, Component lore) {
+        CompoundTag tag = new CompoundTag();
+        ListTag listTag = new ListTag();
+        listTag.add(StringTag.valueOf(Component.Serializer.toJson(lore)));
+        tag.put(ItemStack.TAG_LORE,listTag);
+
+        stack.getOrCreateTag().put(ItemStack.TAG_DISPLAY,tag);
+    }
+
 }

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_shattered_hilt": {
+    "has_mysterious_gem": {
       "conditions": {
         "items": [
           {
             "items": [
-              "erogare:shattered_hilt"
+              "erogare:mysterious_gem"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "erogare:code_sword"
+        "recipe": "erogare:code_shield"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_shattered_hilt",
+      "has_mysterious_gem",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "erogare:code_sword"
+      "erogare:code_shield"
     ]
   },
   "sends_telemetry_event": false

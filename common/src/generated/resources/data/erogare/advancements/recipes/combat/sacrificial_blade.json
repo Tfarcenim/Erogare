@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_shattered_hilt": {
+    "has_mysterious_substance": {
       "conditions": {
         "items": [
           {
             "items": [
-              "erogare:shattered_hilt"
+              "erogare:green_mysterious_substance"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "erogare:code_sword"
+        "recipe": "erogare:sacrificial_blade"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_shattered_hilt",
+      "has_mysterious_substance",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "erogare:code_sword"
+      "erogare:sacrificial_blade"
     ]
   },
   "sends_telemetry_event": false

@@ -6,6 +6,7 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -14,7 +15,11 @@ import tfar.erogare.Erogare;
 import tfar.erogare.init.ModBlocks;
 import tfar.erogare.init.ModCreativeTabs;
 import tfar.erogare.init.ModItems;
+import tfar.erogare.init.ModMobEffects;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.function.Supplier;
 
 public class ModLangProvider extends LanguageProvider {
@@ -22,14 +27,34 @@ public class ModLangProvider extends LanguageProvider {
         super(output, Erogare.MOD_ID, "en_us");
     }
 
+    final Set<Item> item_exclude = new HashSet<>();
+
     @Override
     protected void addTranslations() {
 
-        addItem(() -> ModItems.MEDAL_OF_ATROX,"Medal of Atrox");
-        addItem(() -> ModItems.MEDAL_OF_CONTENTIO,"Medal of Contentio");
-        addItem(() -> ModItems.MEDAL_OF_OBSCURUS,"Medal of Obscurus");
-        addItem(() -> ModItems.MEDAL_OF_OCCIDERE,"Medal of Occidere");
-        addItem(() -> ModItems.MEDAL_OF_VICTORIA,"Medal of Victoria");
+
+
+        addDefaultBlock(() -> ModBlocks.MYSTERIOUS_FLESH);
+        addDefaultBlock(() -> ModBlocks.RAW_CODE);
+
+        itemTranslations();
+
+        addEffect(() -> ModMobEffects.WATCHED,"Watched");
+        addEffect(() -> ModMobEffects.CORRUPTED,"Corrupted");
+
+        addTranslatableComponent(ModCreativeTabs.TITLE,Erogare.MOD_NAME);
+    }
+
+    protected void itemTranslations() {
+
+        item_exclude.addAll(Erogare.getKnownBlocks().map(block -> block.asItem()).filter(item -> item != Items.AIR).toList());
+
+        item_exclude.addAll(List.of(ModItems.OVOS_CARD_RANK_1,ModItems.OVOS_CARD_RANK_2,ModItems.OVOS_CARD_RANK_3,ModItems.OVOS_CARD_RANK_4,
+                ModItems.OVOS_CARD_RANK_5,ModItems.OVOS_CARD_RANK_6,ModItems.OVOS_BUSINESS_CARD,ModItems.BROWN_MYSTERIOUS_SUBSTANCE,ModItems.GREEN_MYSTERIOUS_SUBSTANCE,
+                ModItems.CODE_SHIELD,ModItems.CODE_SWORD,ModItems.CODE_SWORD_OP,ModItems.CODE_SHIELD));
+
+        Erogare.getKnownItems().filter(item -> !item_exclude.contains(item)).forEach(item -> addDefaultItem(() -> item));
+
 
         addItem(() -> ModItems.OVOS_CARD_RANK_1,"OVOS Card Rank 1");
         addItem(() -> ModItems.OVOS_CARD_RANK_2,"OVOS Card Rank 2");
@@ -42,14 +67,8 @@ public class ModLangProvider extends LanguageProvider {
         addItem(() -> ModItems.GREEN_MYSTERIOUS_SUBSTANCE,"Mysterious Substance");
         addItem(() -> ModItems.BROWN_MYSTERIOUS_SUBSTANCE,"Mysterious Substance");
 
-        addDefaultBlock(() -> ModBlocks.MYSTERIOUS_FLESH);
-        addDefaultBlock(() -> ModBlocks.RAW_CODE);
         addItem(() -> ModItems.CODE_SWORD_OP,"CPV1");
         addItem(() -> ModItems.CODE_SWORD,"L'Épée D’Espoire");
-        addDefaultItem(() -> ModItems.SHATTERED_BLADE);
-        addDefaultItem(() -> ModItems.SHATTERED_HILT);
-
-        addTranslatableComponent(ModCreativeTabs.TITLE,Erogare.MOD_NAME);
     }
 
 

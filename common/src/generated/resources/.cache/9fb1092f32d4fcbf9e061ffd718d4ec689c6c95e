@@ -1,3 +1,7 @@
-// 1.20.1	2024-11-09T01:36:44.0128561	Recipes
-aeb843ae898005fb1404a047a423fa265fde0f21 data/erogare/advancements/recipes/combat/code_sword.json
+// 1.20.1	2024-11-25T05:19:50.0939068	Recipes
+37879a1b24fbe9b0e32e2b55ca75dd71b1e5a1bb data/erogare/advancements/recipes/combat/code_shield.json
+4a2ec3bf110c9cb17a52bfee31e7f85bc58cccb5 data/erogare/advancements/recipes/combat/code_sword.json
+dbccb5aac9c9b10c4bbcdc1b510d270fc02417c4 data/erogare/advancements/recipes/combat/sacrificial_blade.json
+ee559020f5f5fc79121aff077a4bb16a69494d8c data/erogare/recipes/code_shield.json
 a8ab9e9d6cfe11647fb9ee9975ad6765ee954d36 data/erogare/recipes/code_sword.json
+88415d7a079e36a73cc79a15b776de38b68318a9 data/erogare/recipes/sacrificial_blade.json

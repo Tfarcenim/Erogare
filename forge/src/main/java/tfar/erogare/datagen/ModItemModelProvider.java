@@ -7,6 +7,7 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import tfar.erogare.Erogare;
 import tfar.erogare.init.ModItems;
 
@@ -34,6 +35,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         makeOneLayerItem(ModItems.GREEN_MYSTERIOUS_SUBSTANCE);
         makeOneLayerItem(ModItems.BROWN_MYSTERIOUS_SUBSTANCE);
         getBuilder("code_sword_op").parent(getExistingFile(modLoc("item/code_sword")));
+        makeOneLayerItem(ModItems.ID_CARD);
+
     }
 
 
