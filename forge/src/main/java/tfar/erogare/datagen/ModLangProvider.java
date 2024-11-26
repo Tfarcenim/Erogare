@@ -69,6 +69,8 @@ public class ModLangProvider extends LanguageProvider {
 
         addItem(() -> ModItems.CODE_SWORD_OP,"CPV1");
         addItem(() -> ModItems.CODE_SWORD,"L'Épée D’Espoire");
+
+        addItem(() -> ModItems.CODE_SHIELD,"Bouclier D’Espoire");
     }
 
 

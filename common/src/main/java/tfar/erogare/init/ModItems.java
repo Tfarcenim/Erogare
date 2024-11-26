@@ -5,6 +5,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import tfar.erogare.item.CodeSwordItem;
 import tfar.erogare.item.LoreItem;
 import tfar.erogare.item.OpCodeSwordItem;
 
@@ -56,7 +57,7 @@ public class ModItems {
     public static final Item MYSTERIOUS_GEM = new LoreItem(new Item.Properties(),Component.literal("It hums with static."));
 
     public static final Item CODE_SWORD_OP = new OpCodeSwordItem(Tiers.NETHERITE,27,-2.4f,new Item.Properties());
-    public static final Item CODE_SWORD = new SwordItem(Tiers.NETHERITE,22,-2.4f,new Item.Properties());
+    public static final Item CODE_SWORD = new CodeSwordItem(Tiers.NETHERITE,22,-2.4f,new Item.Properties());
     public static final Item SACRIFICIAL_BLADE = new SwordItem(Tiers.IRON,18,-2.4f,new Item.Properties());
 
 

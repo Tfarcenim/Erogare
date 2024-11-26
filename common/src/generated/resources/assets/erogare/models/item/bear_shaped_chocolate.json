@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "erogare:item/bear_shaped_chocolate"
+  }
+}

@@ -32,6 +32,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         makeOneLayerItem(ModItems.OVOS_CARD_RANK_6);
         makeOneLayerItem(ModItems.OVOS_BUSINESS_CARD);
 
+        makeOneLayerItem(ModItems.Bear_Shaped_Chocolate);
+        makeOneLayerItem(ModItems.Beetle_Shaped_Chocolate);
+        makeOneLayerItem(ModItems.Butterfly_Shaped_Chocolate);
+        makeOneLayerItem(ModItems.Dragonfly_Shaped_Chocolate);
+        makeOneLayerItem(ModItems.Scorpion_Shaped_Chocolate);
+
         makeOneLayerItem(ModItems.GREEN_MYSTERIOUS_SUBSTANCE);
         makeOneLayerItem(ModItems.BROWN_MYSTERIOUS_SUBSTANCE);
         getBuilder("code_sword_op").parent(getExistingFile(modLoc("item/code_sword")));
