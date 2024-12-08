@@ -31,11 +31,9 @@ public class ModLangProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-
-
-
         addDefaultBlock(() -> ModBlocks.MYSTERIOUS_FLESH);
         addDefaultBlock(() -> ModBlocks.RAW_CODE);
+        addDefaultBlock(() -> ModBlocks.WATCHING_FLESH);
 
         itemTranslations();
 

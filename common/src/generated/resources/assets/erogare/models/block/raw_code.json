@@ -1,0 +1,7 @@
+{
+  "parent": "erogare:block/cubic",
+  "textures": {
+    "1": "erogare:block/raw_code",
+    "particle": "erogare:block/raw_code"
+  }
+}

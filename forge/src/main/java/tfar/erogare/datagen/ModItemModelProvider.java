@@ -9,6 +9,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.common.Mod;
 import tfar.erogare.Erogare;
+import tfar.erogare.init.ModBlocks;
 import tfar.erogare.init.ModItems;
 
 public class ModItemModelProvider extends ItemModelProvider {
@@ -43,6 +44,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         getBuilder("code_sword_op").parent(getExistingFile(modLoc("item/code_sword")));
         makeOneLayerItem(ModItems.ID_CARD);
 
+        makeSimpleBlockItem(ModBlocks.RAW_CODE.asItem());
+        makeSimpleBlockItem(ModBlocks.WATCHING_FLESH.asItem());
+        makeSimpleBlockItem(ModBlocks.MYSTERIOUS_FLESH.asItem());
     }
 
 

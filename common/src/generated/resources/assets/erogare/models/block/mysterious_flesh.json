@@ -1,0 +1,7 @@
+{
+  "parent": "erogare:block/cubic",
+  "textures": {
+    "1": "erogare:block/mysterious_flesh",
+    "particle": "erogare:block/mysterious_flesh"
+  }
+}

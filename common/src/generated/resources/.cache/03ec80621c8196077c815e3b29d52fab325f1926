@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-25T16:38:36.8395598	Item Models: erogare
+// 1.20.1	2024-12-08T01:58:45.0107467	Item Models: erogare
 21f8310354e3cdb1755f0131f4784952a4feca2c assets/erogare/models/item/bear_shaped_chocolate.json
 3d3c00f4f8ea96688d6242fed2c8cbde8831e52b assets/erogare/models/item/beetle_shaped_chocolate.json
 7d5d5b05224195b608ab475fe7577bc322eeb22b assets/erogare/models/item/brown_mysterious_substance.json
@@ -10,6 +10,7 @@ cba6a2fdaec3ac8086565e0255cf6c2e15d53daf assets/erogare/models/item/medal_of_atr
 2c0add2dd9eacf56a6c69d3d8a0a7216f9939b3e assets/erogare/models/item/medal_of_obscurus.json
 8b2acd7cba42242df32d5ddc8df01b6b28e11764 assets/erogare/models/item/medal_of_occidere.json
 2ef074ec955fa01503ede9618c43042312cf34fb assets/erogare/models/item/medal_of_victoria.json
+1de87622d9cc194e529654533551f7c3cdb945a7 assets/erogare/models/item/mysterious_flesh.json
 e2f0b670a0a666bcd74c5fce41a8c9ce0e9e89b3 assets/erogare/models/item/ovos_business_card.json
 84e283bb60e3aa2883429016a1f658d9ced1805b assets/erogare/models/item/ovos_card_rank_1.json
 6dd897347667b384bbe51177016ba7036316ab76 assets/erogare/models/item/ovos_card_rank_2.json
@@ -17,4 +18,6 @@ e2f0b670a0a666bcd74c5fce41a8c9ce0e9e89b3 assets/erogare/models/item/ovos_busines
 f55b2c396b4f867def49de30dce673575abf6ae3 assets/erogare/models/item/ovos_card_rank_4.json
 23916c6a83aeb85ed0aa1f89f57a2774a667d215 assets/erogare/models/item/ovos_card_rank_5.json
 8f8835f1608dacc65da011ae4379f3741b8b0ac9 assets/erogare/models/item/ovos_card_rank_6.json
+d942fa19632275e54a51d982846cf38eb40aa651 assets/erogare/models/item/raw_code.json
 8616211325c457e49c11f3c7f3242b9748adcc04 assets/erogare/models/item/scorpion_shaped_chocolate.json
+3cb27a9551c682e8160d2e01356e47d65a6e4115 assets/erogare/models/item/watching_flesh.json

@@ -1,2 +1,8 @@
-// 1.20.1	2024-11-08T17:11:16.006156	Block States: erogare
+// 1.20.1	2024-12-08T01:55:18.3967029	Block States: erogare
 0fcfd8b133af7b1c62c9d47cfca61dac3a4f6af1 assets/erogare/blockstates/darkness.json
+7ae677845f0efbadb08fa0cae7bb9b912aa1ea7d assets/erogare/blockstates/mysterious_flesh.json
+284b3ed77ea54c805f2541e069f950508763c3cd assets/erogare/blockstates/raw_code.json
+c69ca42f9a53ee432ccf56bc9463d9064ffe1746 assets/erogare/blockstates/watching_flesh.json
+ae433054b635d2aad21b93dba8a884ff02f9c6b7 assets/erogare/models/block/mysterious_flesh.json
+83723991886ec74c0cd27fc8e3c6b086736ccec3 assets/erogare/models/block/raw_code.json
+157e6f337a16a0283ff55e0e9ebc351cac147236 assets/erogare/models/block/watching_flesh.json
