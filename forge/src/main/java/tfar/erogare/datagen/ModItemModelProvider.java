@@ -1,12 +1,17 @@
 package tfar.erogare.datagen;
 
+import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import tfar.erogare.Erogare;
 import tfar.erogare.init.ModBlocks;
@@ -17,20 +22,47 @@ public class ModItemModelProvider extends ItemModelProvider {
         super(output, Erogare.MOD_ID, existingFileHelper);
     }
 
+    ModelFile.ExistingModelFile GENERATED = getExistingFile(mcLoc("item/generated"));
+
     @Override
     protected void registerModels() {
 
         Erogare.getKnownItems().filter(item -> {
-            return !(item instanceof BlockItem) && item != ModItems.CODE_SWORD_OP && item != ModItems.CODE_SWORD;
+            return !(item instanceof BlockItem) && item != ModItems.CODE_SWORD_OP && item != ModItems.CODE_SWORD && item != ModItems.CODE_SHIELD;
         }).forEach(this::makeOneLayerItem);
-
         getBuilder("code_sword_op").parent(getExistingFile(modLoc("item/code_sword")));
-
         makeSimpleBlockItem(ModBlocks.RAW_CODE.asItem());
         makeSimpleBlockItem(ModBlocks.WATCHING_FLESH.asItem());
         makeSimpleBlockItem(ModBlocks.MYSTERIOUS_FLESH.asItem());
+
+        specialModels();
     }
 
+
+    protected void specialModels() {
+        perspectiveModel("code_shield");
+
+    }
+    protected ItemModelBuilder makeSpriteModel(String name) {
+        return getBuilder("item/" + name+"_sprite")
+                .parent(GENERATED)
+                .texture("layer0", "item/" + name+"_sprite");
+
+    }
+    private void perspectiveModel(String name) {
+        ItemModelBuilder r3dFile = nested()
+                .parent(getExistingFile(modLoc("item/" + name+"_3d")));
+
+        ItemModelBuilder rSpriteFile = makeSpriteModel(name);
+
+        getBuilder(name).guiLight(BlockModel.GuiLight.FRONT)
+                .customLoader(SeparateTransformsModelBuilder::begin).base(rSpriteFile)
+                .perspective(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, r3dFile)
+                .perspective(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, r3dFile)
+                .perspective(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, r3dFile)
+                .perspective(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, r3dFile)
+                .end();
+    }
 
     protected void makeSimpleBlockItem(Item item, ResourceLocation loc) {
         String s = BuiltInRegistries.ITEM.getKey(item).toString();
