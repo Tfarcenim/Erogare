@@ -4,10 +4,10 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.common.Mod;
 import tfar.erogare.Erogare;
 import tfar.erogare.init.ModBlocks;
 import tfar.erogare.init.ModItems;
@@ -19,30 +19,12 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        makeOneLayerItem(ModItems.MEDAL_OF_ATROX);
-        makeOneLayerItem(ModItems.MEDAL_OF_CONTENTIO);
-        makeOneLayerItem(ModItems.MEDAL_OF_OBSCURUS);
-        makeOneLayerItem(ModItems.MEDAL_OF_OCCIDERE);
-        makeOneLayerItem(ModItems.MEDAL_OF_VICTORIA);
 
-        makeOneLayerItem(ModItems.OVOS_CARD_RANK_1);
-        makeOneLayerItem(ModItems.OVOS_CARD_RANK_2);
-        makeOneLayerItem(ModItems.OVOS_CARD_RANK_3);
-        makeOneLayerItem(ModItems.OVOS_CARD_RANK_4);
-        makeOneLayerItem(ModItems.OVOS_CARD_RANK_5);
-        makeOneLayerItem(ModItems.OVOS_CARD_RANK_6);
-        makeOneLayerItem(ModItems.OVOS_BUSINESS_CARD);
+        Erogare.getKnownItems().filter(item -> {
+            return !(item instanceof BlockItem) && item != ModItems.CODE_SWORD_OP && item != ModItems.CODE_SWORD;
+        }).forEach(this::makeOneLayerItem);
 
-        makeOneLayerItem(ModItems.Bear_Shaped_Chocolate);
-        makeOneLayerItem(ModItems.Beetle_Shaped_Chocolate);
-        makeOneLayerItem(ModItems.Butterfly_Shaped_Chocolate);
-        makeOneLayerItem(ModItems.Dragonfly_Shaped_Chocolate);
-        makeOneLayerItem(ModItems.Scorpion_Shaped_Chocolate);
-
-        makeOneLayerItem(ModItems.GREEN_MYSTERIOUS_SUBSTANCE);
-        makeOneLayerItem(ModItems.BROWN_MYSTERIOUS_SUBSTANCE);
         getBuilder("code_sword_op").parent(getExistingFile(modLoc("item/code_sword")));
-        makeOneLayerItem(ModItems.ID_CARD);
 
         makeSimpleBlockItem(ModBlocks.RAW_CODE.asItem());
         makeSimpleBlockItem(ModBlocks.WATCHING_FLESH.asItem());

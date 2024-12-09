@@ -1,8 +1,9 @@
-// 1.20.1	2024-12-08T01:58:45.0107467	Item Models: erogare
+// 1.20.1	2024-12-09T01:15:41.2954755	Item Models: erogare
 21f8310354e3cdb1755f0131f4784952a4feca2c assets/erogare/models/item/bear_shaped_chocolate.json
 3d3c00f4f8ea96688d6242fed2c8cbde8831e52b assets/erogare/models/item/beetle_shaped_chocolate.json
 7d5d5b05224195b608ab475fe7577bc322eeb22b assets/erogare/models/item/brown_mysterious_substance.json
 736144f6867d07d593a42092a7732779547dcbec assets/erogare/models/item/code_sword_op.json
+db789fe37e5b96a0da05e7b0774a8dec04d7b314 assets/erogare/models/item/distressed_red_ball.json
 4e2319801d1fd331fea2444ba778630b01074784 assets/erogare/models/item/green_mysterious_substance.json
 3ae9e559bbce55c121bd50e3238a8b129810c4f9 assets/erogare/models/item/id_card.json
 cba6a2fdaec3ac8086565e0255cf6c2e15d53daf assets/erogare/models/item/medal_of_atrox.json
@@ -11,6 +12,8 @@ cba6a2fdaec3ac8086565e0255cf6c2e15d53daf assets/erogare/models/item/medal_of_atr
 8b2acd7cba42242df32d5ddc8df01b6b28e11764 assets/erogare/models/item/medal_of_occidere.json
 2ef074ec955fa01503ede9618c43042312cf34fb assets/erogare/models/item/medal_of_victoria.json
 1de87622d9cc194e529654533551f7c3cdb945a7 assets/erogare/models/item/mysterious_flesh.json
+dd793941208b62317c054b4408b9c5c20a8dc9f9 assets/erogare/models/item/mysterious_gem.json
+92c15d66ba5bbf7d99ea6be7f7196694e0d4deba assets/erogare/models/item/mysterious_molt.json
 e2f0b670a0a666bcd74c5fce41a8c9ce0e9e89b3 assets/erogare/models/item/ovos_business_card.json
 84e283bb60e3aa2883429016a1f658d9ced1805b assets/erogare/models/item/ovos_card_rank_1.json
 6dd897347667b384bbe51177016ba7036316ab76 assets/erogare/models/item/ovos_card_rank_2.json
