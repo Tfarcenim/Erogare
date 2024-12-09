@@ -28,9 +28,10 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
 
         Erogare.getKnownItems().filter(item -> {
-            return !(item instanceof BlockItem) && item != ModItems.CODE_SWORD_OP && item != ModItems.CODE_SWORD && item != ModItems.CODE_SHIELD;
+            return !(item instanceof BlockItem) && item != ModItems.CODE_SWORD_OP && item != ModItems.CODE_SWORD && item != ModItems.CODE_SHIELD
+                    && item != ModItems.SHATTERED_BLADE && item != ModItems.SHATTERED_HILT;
         }).forEach(this::makeOneLayerItem);
-        getBuilder("code_sword_op").parent(getExistingFile(modLoc("item/code_sword")));
+        //getBuilder("code_sword_op").parent(getExistingFile(modLoc("item/code_sword")));
         makeSimpleBlockItem(ModBlocks.RAW_CODE.asItem());
         makeSimpleBlockItem(ModBlocks.WATCHING_FLESH.asItem());
         makeSimpleBlockItem(ModBlocks.MYSTERIOUS_FLESH.asItem());
@@ -41,6 +42,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     protected void specialModels() {
         perspectiveModel("code_shield");
+        perspectiveModel("code_sword");
+        perspectiveModel("shattered_blade");
+        perspectiveModel("shattered_hilt");
+        getBuilder("code_sword_op").parent(new ModelFile.UncheckedModelFile(modLoc("item/code_sword")));
 
     }
     protected ItemModelBuilder makeSpriteModel(String name) {
