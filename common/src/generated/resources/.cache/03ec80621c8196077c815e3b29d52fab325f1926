@@ -1,13 +1,15 @@
-// 1.20.1	2024-12-09T07:07:55.7405285	Item Models: erogare
+// 1.20.1	2024-12-11T17:24:59.9958116	Item Models: erogare
 21f8310354e3cdb1755f0131f4784952a4feca2c assets/erogare/models/item/bear_shaped_chocolate.json
 3d3c00f4f8ea96688d6242fed2c8cbde8831e52b assets/erogare/models/item/beetle_shaped_chocolate.json
 7d5d5b05224195b608ab475fe7577bc322eeb22b assets/erogare/models/item/brown_mysterious_substance.json
+884b1aa755df9866c9ca45bbb730b2c3cc5017f2 assets/erogare/models/item/butterfly_shaped_chocolate.json
 ff687d373418e1c1709328be45461a5bd0fbc85f assets/erogare/models/item/code_shield.json
 7817bea302bae66fb5a72ca4dc219bbac8442b59 assets/erogare/models/item/code_shield_sprite.json
 11eb22fe3f576600b0cf720089dd3814808b7a82 assets/erogare/models/item/code_sword.json
 736144f6867d07d593a42092a7732779547dcbec assets/erogare/models/item/code_sword_op.json
 04f4fc9fead7a93ac0dbd858c6d8618782fa8ee9 assets/erogare/models/item/code_sword_sprite.json
 db789fe37e5b96a0da05e7b0774a8dec04d7b314 assets/erogare/models/item/distressed_red_ball.json
+65d74c480531bf413edf5baa1d24620e29fddd67 assets/erogare/models/item/dragonfly_shaped_chocolate.json
 4e2319801d1fd331fea2444ba778630b01074784 assets/erogare/models/item/green_mysterious_substance.json
 3ae9e559bbce55c121bd50e3238a8b129810c4f9 assets/erogare/models/item/id_card.json
 cba6a2fdaec3ac8086565e0255cf6c2e15d53daf assets/erogare/models/item/medal_of_atrox.json
@@ -26,6 +28,7 @@ f55b2c396b4f867def49de30dce673575abf6ae3 assets/erogare/models/item/ovos_card_ra
 23916c6a83aeb85ed0aa1f89f57a2774a667d215 assets/erogare/models/item/ovos_card_rank_5.json
 8f8835f1608dacc65da011ae4379f3741b8b0ac9 assets/erogare/models/item/ovos_card_rank_6.json
 d942fa19632275e54a51d982846cf38eb40aa651 assets/erogare/models/item/raw_code.json
+cda3426b555353f25d9a8fb888ab5f1bd845ce3c assets/erogare/models/item/sacrificial_blade.json
 8616211325c457e49c11f3c7f3242b9748adcc04 assets/erogare/models/item/scorpion_shaped_chocolate.json
 9f131e963cc75eb87bfed146198ea3ebee8c4a79 assets/erogare/models/item/shattered_blade.json
 f86dacd387da4f571eba4e38b3c2162c494333b6 assets/erogare/models/item/shattered_blade_sprite.json
